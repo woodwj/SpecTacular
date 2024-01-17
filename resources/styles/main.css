@@ -1,9 +1,3 @@
-
-h1, h2, h3 {
-  color: #ffd700; /* Gold color */
-}
-
-/* Set the overall page background to black */
 body {
   background-color: #000;
   color: #fff; /* Set default text color to white */
@@ -16,31 +10,6 @@ form {
   margin: 0 auto;
 }
 
-/* Style for each question div */
-.question {
-  margin-bottom: 20px;
-  padding: 15px;
-  border: 1px solid #ffd700; /* Gold border */
-  border-radius: 8px;
-  background-color: #333; /* Dark gray background inside questions */
-}
-
-.question-section {
-  margin-bottom: 20px;
-  padding: 15px;
-  border: 1px solid #ffffff; /* Gold border */
-  border-radius: 8px;
-  background-color: #333; /* Dark gray background inside questions */
-}
-
-/* Style for labels */
-label {
-  display: block;
-  margin-bottom: 5px;
-  color: #fff; /* White text color */
-}
-
-/* Style for input fields */
 input {
   width: 100%;
   padding: 8px;
@@ -62,16 +31,56 @@ button {
   cursor: pointer;
 }
 
-/* Style for line breaks */
-br {
-  clear: both;
+h1,h2,h3, a {
+  color: #ffd700;
 }
 
-/* Clearfix to clear floated elements */
-.clearfix::after {
-  content: "";
-  display: table;
-  clear: both;
+label {
+  display: block;
+  margin-bottom: 5px;
+  color : #fff
+}
+
+#main_menu {
+  margin : 0  auto;
+  text-align: left;
+  max-width: 600px;
+  padding: 20px;
+  border: 1px solid #ffd700; /* Gold */
+  border-radius: 10px;
+  background-color: #333; /* Darker Grey */
+}
+
+#main_menu h2 {
+  display: flex;
+  align-items: center;
+}
+
+#main_menu h2 img {
+  max-height: 100px;
+  margin-left: auto;
+}
+
+#quizArea {
+  margin-top: 25px;
+  margin-bottom: 100px; /* You can adjust the value as needed */
+}
+
+/* Style for each question div */
+.question {
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: #333; /* Darker Grey */
+  border: 1px solid #ffd700; /* Gold border */
+  border-radius: 8px;
+}
+
+.question-section {
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: #333; /* Darker Grey */
+  border: 1px solid #ffffff; /* Gold border */
+  border-radius: 8px;
 }
 
 .text-input {
@@ -80,7 +89,7 @@ br {
 }
 
 .quantity-input {
-  width: 20%; /* Quantity input takes up 20% of the horizontal space */
+  width: 19%; /* Quantity input takes up 20% of the horizontal space */
   box-sizing: border-box; /* Include padding and border in the width calculation */
 }
 
@@ -90,15 +99,11 @@ br {
   align-items: center;
 }
 
-/* Add vertical space below the quiz area */
-#quizArea {
-  margin-bottom: 50px; /* You can adjust the value as needed */
-}
-
 #scoreArea {
   margin: 0 auto;
+  max-width: 100%;
+  margin-bottom: auto;
   background-color: #333; /* Dark gray background */
-  color: #fff; /* White text color */
   padding: 20px; /* Adjust padding as needed */
   border: 1px solid #ffd700; /* Gold border */
   display: flex;
@@ -114,6 +119,3 @@ br {
   width: 100%; /* Ensure the line spans the width of the container */
   margin: 10px 0; /* Adjust margin as needed */
 }
-
-
-
