@@ -64,7 +64,6 @@ function markGarnish(cocktail) {
     return [score, max_score];
 }
 
-
 function markMethod(cocktail){
     let score = 0;
     const method_guess = document.getElementById(`${cocktail.name}_methods`).value;
@@ -77,11 +76,6 @@ function markMethod(cocktail){
     }
     return [score,1];
 };
-
-function getColorStyle(percentage) {
-    const hue = (percentage / 100) * 120; // 0 (green) to 120 (red)
-    return `hsl(${hue}, 100%, 50%)`;
-}
 
 function markCocktail(cocktail) {
     let total_score = 0;
@@ -101,10 +95,15 @@ function markCocktail(cocktail) {
     }
 }
 
+function getColorStyle(percentage) {
+    const hue = (percentage / 100) * 120; // 0 (green) to 120 (red)
+    return `hsl(${hue}, 100%, 50%)`;
+}
+
 function handleQuizSubmission(event, JSONObject) {
     event.preventDefault();
     document.getElementById("sumbit-test-button").remove();
-    const scoreDiv = make_div(id = "scoreArea");
+    const scoreDiv = make_elem({id: "scoreArea"});
 
     let totalScore = 0;
     let totalMaxScore = 0;
