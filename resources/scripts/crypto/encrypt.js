@@ -1,17 +1,6 @@
-const _PASSPHRASE = "?????"
-const _PT_FPATH = "answers.json"
-const _EN_FNAME = "encrypted_answers.txt"
-
-async function fetch_JSON() {
-    // Fetch stringified data from the plaintext answers.json file
-    const response = await fetch(_PT_FPATH);
-    const JSONData = await response.json();
-    return JSON.stringify(JSONData);
-}
-
-async function encrypt_data(jsonString) {
+async function encrypt_data(jsonString, passcode) {
     // Derive a key from the passphrase using PBKDF2
-    const passphrase = new TextEncoder().encode(_PASSPHRASE);
+    const passphrase = new TextEncoder().encode(passcode);
     const salt = crypto.getRandomValues(new Uint8Array(16)); // Generate a random salt
     const iterations = 1000; // Number of iterations based on security requirements
     const iv = crypto.getRandomValues(new Uint8Array(12)); // Fresh rand init vec
@@ -58,30 +47,29 @@ async function encrypt_data(jsonString) {
     return ivSaltAndEncrypted;
 }
 
-async function download_data(encryptedBuffer){
+async function download_data(encryptedBuffer, menu_name){
     // Create a Blob with the concatenated data
     const blob = new Blob([encryptedBuffer], { type: 'application/octet-stream' });
     
     // Setup and execute download
     const link = document.createElement('a');
     link.href = URL.createObjectURL(blob);
-    link.download = _EN_FNAME;
+    link.download = menu_name;
     link.click();   
 }
 
-async function encrypt_download() {
+async function encrypt_download(JSONData, menu_name, passcode) {
     try {
-        // FETCH
-        const JSONString = await fetch_JSON();
-        console.log("JSON fetched from "+_PT_FPATH)
+        const JSONString = JSON.stringify(JSONData);
+        console.log(JSONString);
 
         // ENCRYPT
-        const post_process = await encrypt_data(JSONString);
-        console.log("Data encrypted successfully")
+        const post_process = await encrypt_data(JSONString, passcode);
+        console.log("Data encrypted successfully");
 
         // SAVE
-        download_data(post_process);
-        console.log("Encryption downloaded successfully")
+        download_data(post_process, menu_name);
+        console.log("Encryption downloaded successfully");
 
     } catch (error) {
         console.error('Encryption & Download failed:', error);

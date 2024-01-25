@@ -1,31 +1,57 @@
 <!DOCTYPE html>
 <html>
 <head>
+
     <meta charset='utf-8'>
     <title>SpecTacular</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='resources/styles/main.css'>
 
     <!-- Dependencies
-    |-> licence
-    |   -> acess_test
-    |       -> encrypt
-    |       -> decrypt
-    |           -> generate_quiz
-    |               -> dropdown
-    |               -> input_elements
-    |               -> marker
+    -> start                               
+        -> take_test
+            -> decrypt
+            -> generate_quiz                
+                -> generate_dropdowns       
+                -> template_elements        -> make_elements
+                -> input_elements           -> make_elements
+                -> mark_menu                -> make_elements
+        -> edit_test
+            -> decrypt                      -> Web Crypto API (https://developer.mozilla.org/en-US/docs/Web/API/Web_Crypto_API#browser_compatibility)
+            -> generate_quiz                -> make_elements
+                -> generate_dropdowns       -> make_elements
+                -> template_elements        -> make_elements
+                -> input_elements           -> make_elements
+                -> button_handlers          -> make_elements
+                -> change_menu          
+        -> new_test
+            -> generate_quiz                -> make_elements
+                    -> generate_dropdowns   -> make_elements
+                    -> template_elements    -> make_elements
+                    -> input_elements       -> make_elements
+                    -> button_handlers      -> make_elements
+                    -> change_menu
+                        -> encrypt          -> Web Crypto API (https://developer.mozilla.org/en-US/docs/Web/API/Web_Crypto_API#browser_compatibility)
     -->
 
-    <script src='resources/scripts/quiz/marker.js'></script>
-    <script src='resources/scripts/quiz/widgets/dropdown.js'></script>
-    <script src='resources/scripts/quiz/widgets/create_elements.js'></script>
-    <script src='resources/scripts/quiz/widgets/input_elements.js'></script>
-    <script src='resources/scripts/quiz/generate_quiz.js'></script>
-    <script src='resources/scripts/crypto/decrypt.js'></script>
-    <script src='resources/scripts/crypto/encrypt.js'></script>
-    <script src='resources/scripts/auth/take_test.js'></script>
+    <script src='Resources/scripts/quiz/widgets/make_elements.js'></script>
 
+    <script src='Resources/scripts/quiz/submissons/change_menu.js'></script>
+    <script src='Resources/scripts/quiz/submissons/mark_menu.js'></script>
+
+    <script src='Resources/scripts/quiz/widgets/template_elements.js'></script>
+    <script src='Resources/scripts/quiz/widgets/input_elements.js'></script>
+    <script src='Resources/scripts/quiz/widgets/button_handlers.js'></script>
+
+    <script src='Resources/scripts/crypto/encrypt.js'></script>
+    <script src='Resources/scripts/quiz/generate_dropdowns.js'></script>
+    <script src='Resources/scripts/quiz/generate_quiz.js'></script>
+    <script src='Resources/scripts/crypto/decrypt.js'></script>
+
+    <script src='resources/scripts/auth/edit_test.js'></script>
+    <script src='resources/scripts/auth/new_test.js'></script>
+    <script src='resources/scripts/auth/take_test.js'></script>
+    
 </head>
 <body>
     <script src='resources/scripts/start.js'></script>

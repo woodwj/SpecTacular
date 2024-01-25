@@ -1,7 +1,5 @@
 async function take_test_callback(event) {
     event.preventDefault();
-    if (_VERBOSE >= 2){console.log("Starting Test");}
-
     try {
         // Attempt decrypt
         const menu = await decrypt(
@@ -15,19 +13,20 @@ async function take_test_callback(event) {
         document.getElementById("main_menu").remove();
         generate_quiz(menu);
 
-        if (_VERBOSE >= 1){console.log("Test Started")};
+        if (_VERBOSE >= 1){console.log("Test interface generated")};
 
     } catch (error) {
-        if (_VERBOSE >= 1){console.error("Error starting test: "+error);}
 
         if (error instanceof MenuFileError) {
-            document.getElementById("keyInputLabel").textContent = "Error - please provide a valid menu";
-            document.getElementById("keyInputLabel").style.color = "red";
+            const menuLabel = document.getElementById("menuInputLabel");
+            menuLabel.textContent += "- please provide a valid menu";
+            menuLabel.style.color = "red";
         }
 
         else if (error instanceof KeyError) {
-            document.getElementById("keyInputLabel").textContent = "Error - wrong passcode please try again";
-            document.getElementById("keyInputLabel").style.color = "red";
+            const keyLabel = document.getElementById("keyInputLabel");
+            keyLabel.textContent += "- wrong passcode please try again";
+            keyLabel.style.color = "red";
         }
         
         else {throw error;}

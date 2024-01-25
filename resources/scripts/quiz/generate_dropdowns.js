@@ -6,15 +6,26 @@ function knuth_shuffle(array) {
   return array;
 }
 
-function init_dropdown_datalists(JSONObject) {
+function make_datalist(id, options) {
+  var datalist = document.createElement("datalist");
+  datalist.id = id;
+  options.forEach(option => {
+      const optionElement = document.createElement("option");
+      optionElement.value = option;
+      datalist.appendChild(optionElement);
+  });
+  return datalist;
+}
+
+function init_dropdown_datalists(menu) {
   // Initialize empty arrays for each component
   let ingredients = [];
   let glasses = [];
   let garnishes = [];
   let methods = [];
 
-  for (const alcoholType in JSONObject) {
-    const cocktails = JSONObject[alcoholType];
+  for (const alcoholType in menu) {
+    const cocktails = menu[alcoholType];
 
     // Iterate over each cocktail
     cocktails.forEach(cocktail => {

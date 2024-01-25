@@ -100,7 +100,7 @@ function getColorStyle(percentage) {
     return `hsl(${hue}, 100%, 50%)`;
 }
 
-function handleQuizSubmission(event, JSONObject) {
+function handle_test_submission(event, JSONObject) {
     event.preventDefault();
     document.getElementById("sumbit-test-button").remove();
     const scoreDiv = make_elem({id: "scoreArea"});

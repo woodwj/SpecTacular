@@ -1,73 +1,54 @@
-function generate_quiz(menu) {
+function gen_cocktail(cocktail, edit_mode = false) {
+  // Wrapper for each cocktail with title
+  const cocktailDiv = gen_cocktail_wrapper(cocktail.name);
 
+  // cocktail ingredients + quantities input elements
+  cocktailDiv.appendChild(gen_ingredients_input(cocktail, edit_mode));
+  // cocktail glass input element
+  cocktailDiv.appendChild(gen_glass_input(cocktail, edit_mode));
+  // cocktail garnish input elements
+  cocktailDiv.appendChild(gen_garnishes_input(cocktail, edit_mode));
+  // cocktail method input element
+  cocktailDiv.appendChild(gen_method_input(cocktail, edit_mode));
+
+  // if editing a test, add a remove cocktail button
+  if (edit_mode) {cocktailDiv.appendChild(gen_remove_cocktail_button(cocktail.name));}
+  return cocktailDiv;
+}
+
+function generate_quiz(menu, edit_mode = false, ...credentials) {
   // initilise the dropdown datalists
   init_dropdown_datalists(menu);
 
   // form for the quiz with marker callback
   const form = make_elem(
-    {
-      elem : "form",
-      id   : "quizForm",
-      callback : ["submit", (event) => handleQuizSubmission(event, menu)]
-    }
-  );
+  {
+    elem : "form",
+    id   : "quizForm",
+    callback : ["submit", (event) => edit_mode? handle_edit_submisson(event, ...credentials) : handle_test_submission(event, menu)]
+  }); 
 
   for (const [category, cocktail_list] of Object.entries(menu)) {
 
-    // Wrapper for each section with title
-    let sectionDiv = make_elem({
-      id : `${category}_questions`,
-      cls: "question-section",
-    });
-    sectionDiv.appendChild(make_elem({
-      elem : "h2",
-      textContent: category
-    }));
+    // category wrapper with title
+    let categoryDiv = gen_category_wrapper(category);
     
-    cocktail_list.forEach(cocktail => {
-      // Wrapper for each cocktail with title
-      const cocktailDiv = make_elem({
-        id : `${cocktail.name}_question`,
-        cls: "question"
-      });
-      cocktailDiv.appendChild(make_elem({
-        elem : "h3",
-        id : `${cocktail.name}_title`,
-        textContent: cocktail.name
-      }));
+    // generate each cocktail in the category
+    cocktail_list.forEach(cocktail => {categoryDiv.appendChild(gen_cocktail(cocktail, edit_mode));});
 
-      // cocktail ingredients + quantities input elements
-      cocktailDiv.appendChild(ingredients_element(cocktail.name, cocktail.ingredients));
-
-      // cocktail glass input element
-      cocktailDiv.appendChild(make_elem({
-        HTML : `
-        <label for="${cocktail.name}_glasses">Glass:</label>
-        <input id = "${cocktail.name}_glass" list = glassList></input>`
-      }));
-
-      // cocktail garnish input elements
-      cocktailDiv.appendChild(garnishes_element(cocktail.name, cocktail.garnish));
-
-      // cocktail method input element
-      cocktailDiv.appendChild(make_elem({
-        HTML : `
-        <label for="${cocktail.name}_methods">Method:</label>
-        <input id = "${cocktail.name}_methods" list = methodList></input>
-        `
-      }));
-      sectionDiv.appendChild(cocktailDiv);
-    });
-    form.appendChild(sectionDiv);
+    // add cocktail button at the end of category
+    if (edit_mode) {
+      categoryDiv.appendChild(gen_add_cocktail_button(category));
+      categoryDiv.appendChild(gen_remove_category_button(category));
+    }
+    form.appendChild(categoryDiv);
   }
+  
+  // in edititng context add category button
+  if (edit_mode) {form.appendChild(gen_add_category_button());}
+ 
   // Create and append the submit button to the form
-  form.appendChild(make_elem({
-    elem : "button",
-    id : "sumbit-test-button",
-    type: "sumbit",
-    textContent : "Sumbit Test"
-  }));
+  form.appendChild(gen_test_sumbit_button(edit_mode));
   // add the form to the page
   document.body.appendChild(form);
-  console.log("Question form generated successfully");
 }
