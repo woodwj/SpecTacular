@@ -62,7 +62,7 @@ if (Date.now() - _EXPIRY > 0) {
     // License Valid -> Form for test access
     const greeting = `
     <h2>SpecTacular<img src="resources/images/MM_Icon.png" alt="SpecTacular Image"></h2>
-    <p><u>Do not share passcodes codes with candidates.</u></p>
+    <p><u>Do not share passcodes with candidates.</u></p>
     `;
     document.body.appendChild(make_elem(
     {
