@@ -102,7 +102,7 @@ function getColorStyle(percentage) {
 
 function handle_test_submission(event, JSONObject) {
     event.preventDefault();
-    document.getElementById("sumbit-test-button").remove();
+    document.getElementById("submit-test-button").remove();
     const scoreDiv = make_elem({id: "scoreArea"});
 
     let totalScore = 0;

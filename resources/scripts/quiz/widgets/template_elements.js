@@ -2,7 +2,7 @@ function gen_cocktail_wrapper(cocktail_name){
     return make_elem({
         id : `${cocktail_name}_question`,
         cls: "question",
-        HTML: `<h3>${cocktail_name}</h3>`
+        HTML: `<h3 id = "${cocktail_name}_title">${cocktail_name}</h3>`
     });
 }
 
@@ -57,7 +57,7 @@ function gen_add_cocktail_button(category_name){
 function gen_test_sumbit_button(edit_mode){
     return make_elem({
         elem : "button",
-        id : "sumbit-edit-button",
+        id :edit_mode? "sumbit-edit-button": "submit-test-button",
         type: "sumbit",
         textContent : edit_mode? "Submit Changes" : "Sumbit Test",
     });

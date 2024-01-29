@@ -10,6 +10,7 @@ function main_menu_callback_of(button){
 
     // resolve handler based on the button click context
     let handler, preamble;
+    let menu_input_HTML = `<input type="file" id="menuInput" accept=".menu" placeholder="Required ..." required></input>`;
     if (button.id == "mm_take"){
         handler = take_test_callback;
         preamble = "To take a test please select a menu file and provide its passcode. Its recommended to keep your menu files in the 'Menus' Folder.";
@@ -21,6 +22,7 @@ function main_menu_callback_of(button){
     else if (button.id == "mm_new"){
         handler = new_test_callback;
         preamble = "To create a test please enter a filename for the menu and a passode to acess the menu with."
+        menuInputHTML = `<input type="text" id="menuInput" placeholder="Required ..." required></input>`;
     }
     else {console.error("Error in main menu callback context | Check Button:", button);}
 
@@ -32,7 +34,7 @@ function main_menu_callback_of(button){
         HTML : `
         <p>${preamble}</p>
         <label for="menuInput" id="menuInputLabel">${button.id == 'mm_new' ? 'Enter Menu Name ' : 'Select Menu '}</label>
-        ${button.id == "mm_new" ? '<input type="text" id="menuInput" placeholder="Required ..." required></input>' : '<input type="file" id="menuInput" accept=".menu" placeholder="Required ..." required></input>'}
+        ${menu_input_HTML}
         <label for="keyInput" id="keyInputLabel">Enter Pascode </label>
         <input type="password" id="keyInput" placeholder="Required..." required>
         <button type="submit">Submit</button>`,
@@ -42,7 +44,7 @@ function main_menu_callback_of(button){
 }
 
 // I know this is fake, but for my purposes
-if (Date.now() - new Date(2000000000000) > 0) {
+if (Date.now() - _EXPIRY > 0) {
 
     // Out of date licence -> Alert
     document.body.appendChild(make_elem(
@@ -51,7 +53,7 @@ if (Date.now() - new Date(2000000000000) > 0) {
         HTML : `
         <u><h1>Trial Over</h1></u>
         <p>This trial version has expired, deadline: ${_EXPIRY.toDateString()}</p>
-        <p>Contact via <a href=https://github.com/woodwj/SpecTacular>GitHub</a>`
+        <p>Contact via <a href=https://github.com/woodwj/SpecTacular>GitHub</a></p>`
     }
     ));
     if (_VERBOSE >= 1){console.log("Licence Invalid")};
@@ -68,9 +70,9 @@ if (Date.now() - new Date(2000000000000) > 0) {
         HTML: `
         <div>${greeting}</div>
         <div id="mm_buttons">
-        <button id="mm_take" onclick="main_menu_callback_of(this)">Take a Test</button>
-        <button id="mm_edit" onclick="main_menu_callback_of(this)">Edit Menu</button>
-        <button id="mm_new" onclick="main_menu_callback_of(this)">Create Menu</button>
+            <button id="mm_take" onclick="main_menu_callback_of(this)">Take a Test</button>
+            <button id="mm_edit" onclick="main_menu_callback_of(this)">Edit Menu</button>
+            <button id="mm_new" onclick="main_menu_callback_of(this)">Create Menu</button>
         </div>`
     }
     ));

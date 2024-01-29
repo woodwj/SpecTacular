@@ -32,18 +32,18 @@ button {
   margin-right: 10px;
 }
 
-h1,h2,h3, a {
-  color: #ffd700;
+h1, h2, h3, a {
+  color: #ffd700; /* Gold color for headings and links */
 }
 
 label {
   display: block;
   margin-bottom: 5px;
-  color : #fff
+  color: #fff;
 }
 
 #main_menu {
-  margin : 0  auto;
+  margin: 0 auto;
   text-align: left;
   max-width: 600px;
   padding: 20px;
