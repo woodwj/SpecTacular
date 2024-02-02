@@ -1,6 +1,6 @@
 // GLOBALS
 const _VERBOSE = 2;
-const _EXPIRY = new Date(2000000000000);
+const _EXPIRY = new Date(1709254861000);
 
 // main menu button onclick callback
 function main_menu_callback_of(button){
