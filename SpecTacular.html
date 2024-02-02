@@ -12,7 +12,7 @@
         -> take_test
             -> decrypt
             -> generate_quiz                
-                -> generate_dropdowns       
+                -> generate_dropdowns       -> make_elements
                 -> template_elements        -> make_elements
                 -> input_elements           -> make_elements
                 -> mark_menu                -> make_elements
@@ -48,12 +48,12 @@
     <script src='Resources/scripts/quiz/generate_quiz.js'></script>
     <script src='Resources/scripts/crypto/decrypt.js'></script>
 
-    <script src='resources/scripts/auth/edit_test.js'></script>
-    <script src='resources/scripts/auth/new_test.js'></script>
-    <script src='resources/scripts/auth/take_test.js'></script>
+    <script src='Resources/scripts/auth/edit_test.js'></script>
+    <script src='Resources/scripts/auth/new_test.js'></script>
+    <script src='Resources/scripts/auth/take_test.js'></script>
     
 </head>
 <body>
-    <script src='resources/scripts/start.js'></script>
+    <script src='Resources/scripts/start.js'></script>
 </body>
 </html>

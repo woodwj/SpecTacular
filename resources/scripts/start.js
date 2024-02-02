@@ -22,7 +22,7 @@ function main_menu_callback_of(button){
     else if (button.id == "mm_new"){
         handler = new_test_callback;
         preamble = "To create a test please enter a filename for the menu and a passode to acess the menu with."
-        menuInputHTML = `<input type="text" id="menuInput" placeholder="Required ..." required></input>`;
+        menu_input_HTML = `<input type="text" id="menuInput" placeholder="Required ..." required></input>`;
     }
     else {console.error("Error in main menu callback context | Check Button:", button);}
 

@@ -1,4 +1,5 @@
-# v2.0 - Creating Menu, Taking & Editing Tests
+# How to Create Menu, Take & Edit Tests
+## For guided walkthroughs, see the Tutorials folder
 
 SpecTacular's aims to replace pen on paper testing of cocktail menu specifications with a digital application.
 This readme shows how to use the software.
@@ -17,7 +18,7 @@ This readme shows how to use the software.
     1. Open the SpecTacular directory.
     2. Open **specTacular.html** - with a double click
     3. Click the **Take Test** button.
-    4. Select your **"filename".menu** Menu file. I reccomend using the **SpecTacular/Menus** directory to store these files.
+    4. Select your **filename.menu** Menu file. Use the **SpecTacular/Menus** directory to store these files.
     5. Fill in the empty sections and sumbit the test
     6. Record the final score.
 
@@ -25,7 +26,7 @@ This readme shows how to use the software.
     1. Open the SpecTacular directory.
     2. Open **specTacular.html** - with a double click
     3. Click the **Edit Test** button.
-    4. Select your **"filename".menu** Menu file. I reccomend using the **SpecTacular/Menus** directory to store these files.
+    4. Select your **filename.menu** Menu file. Use the **SpecTacular/Menus** directory to store these files.
     5. Make your changes and sumbit the test
     6. A new **.menu** file will be downloaded, move it to the **SpecTacular/Menus** directory.
 
