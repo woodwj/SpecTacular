@@ -27,7 +27,7 @@ relys on the <file> interface so
 - ## Taking a Test
 1. Open the SpecTacular folder
 3. Open **specTacular.html** - with a double click
-4. Click the **Take Test** button.
+4. Click the **Bar Test** or **Floor Test** button.
 5. Select your **filename.menu** Menu file. Use the **SpecTacular/Menus** directory to store these files.
 6. Fill in the empty sections and sumbit the test
 7. Record the final score.
@@ -42,19 +42,22 @@ relys on the <file> interface so
 
 - ## Converting from JSON
 You can also use **MenuManger.html** to convert menus from JSON.
-Follow the CFG for building menu objects in your own JSON file.
+Follow the pattern for building menu objects in your own JSON file.
 
 Terminals
-Name : Str
-Quantity : Int
-Ingredient: Str
-Glass : Str
-Garnish : Str
-Method : Str
-History : Str
+```
+Name : Str,
+Quantity : Int,
+Ingredient: Str,
+Glass : Str,
+Garnish : Str,
+Method : Str,
+History : Str,
+```
 
 Connectives
-Ingredients : {Ingredient : Quantity}
+```
+Ingredients : {Ingredient : Quantity},
 Cocktail : {
     Name
     Ingredients,
@@ -62,6 +65,7 @@ Cocktail : {
     Method,
     Optional(Garnish)
     Optional(History)
-}
-Category : [Cocktail, ...]
-Menu : [Category]
+},
+Category : [Cocktail, ...],
+Menu : [Category, ...]
+```
