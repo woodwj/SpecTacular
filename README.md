@@ -1,17 +1,23 @@
-# How to Create Menu, Take & Edit Tests
-## For microsoft walkthroughs with pictures, see the Tutorials folder
+# SpecTacular
+### No more pen-on-paper spec tests.
+---
 
-SpecTacular aims to replace pen on paper testing of cocktail menu specifications with a offline, easy-to-use webpage.
+# Testing
++ 1 mark per menu item. All questions about the drink must be answered correctly to gain the mark.
++ All components are multiple choice apart from quantity questions.
++ The tests are untimed.
++ Floor tests only test for ingredients, glass, garnish and history.
 
-To maximize compatability and portability, this app relys on the <file> interface for i.o so be aware:
-+ you have to upload a menu to take a test and you have to download a menu to save changes
-+ Its recomended you use the empty **SpecTacular/Menus** folder
-+ when you create a menu, remember its password; you need need it to take or change the menu
+# For Managers
+relys on the <file> interface so
++ you have to select a menu from a popup to take a test, edit or create
++ its recomended you use the empty **SpecTacular/Menus** folder when you download menus
++ when you create a menu, remember its password
   
 ---
 - ## Creating a Menu
 1. Open the SpecTacular folder
-2. Open **specTacular.html** - with a double click
+2. Open **MenuManager.html** - with a double click
 3. Click the **Create Menu** button
 4. Enter your desired passcode and filename and press submit
 5. Use the Add Section Cocktail buttons, providing inputs when prompted
@@ -28,8 +34,34 @@ To maximize compatability and portability, this app relys on the <file> interfac
 
 - ## Editing a Test
 1. Open the SpecTacular folder
-2. Open **specTacular.html** - with a double click
+2. Open **MenuManger.html** - with a double click
 3. Click the **Edit Test** button
 4. Select your **filename.menu** Menu file. Use the **SpecTacular/Menus** directory to store these files
 5. Make your changes and sumbit the test
 6. A new **.menu** file will be downloaded, move it to the **SpecTacular/Menus** directory
+
+- ## Converting from JSON
+You can also use **MenuManger.html** to convert menus from JSON.
+Follow the CFG for building menu objects in your own JSON file.
+
+Terminals
+Name : Str
+Quantity : Int
+Ingredient: Str
+Glass : Str
+Garnish : Str
+Method : Str
+History : Str
+
+Connectives
+Ingredients : {Ingredient : Quantity}
+Cocktail : {
+    Name
+    Ingredients,
+    Glass,
+    Method,
+    Optional(Garnish)
+    Optional(History)
+}
+Category : [Cocktail, ...]
+Menu : [Category]

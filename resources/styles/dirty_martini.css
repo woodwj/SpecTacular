@@ -84,13 +84,18 @@ label {
   border-radius: 8px;
 }
 
-.text-input {
+.floor-ingredient-input {
+  width: 100%; /* Text input takes up 80% of the horizontal space */
+  box-sizing: border-box; /* Include padding and border in the width calculation */
+}
+
+.bar-ingredient-input {
   width: 80%; /* Text input takes up 80% of the horizontal space */
   box-sizing: border-box; /* Include padding and border in the width calculation */
 }
 
-.quantity-input {
-  width: 19%; /* Quantity input takes up 20% of the horizontal space */
+.bar-quantity-input {
+  width: 20%; /* Quantity input takes up 20% of the horizontal space */
   box-sizing: border-box; /* Include padding and border in the width calculation */
 }
 

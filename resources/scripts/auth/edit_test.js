@@ -1,4 +1,4 @@
-async function edit_test_callback(event) {
+async function edit_test_callback(event, mode) {
     event.preventDefault();
     try {
         const file = document.getElementById('menuInput').files[0];
@@ -10,7 +10,11 @@ async function edit_test_callback(event) {
 
         // Remove the authentication form and generate the quiz
         document.getElementById("main_menu").remove();
-        generate_quiz(menu, edit_mode = true, file.name, passcode);
+
+        handler = new editor(file.name, passcode);
+        widgets = new widgetFactory(mode);
+        q = new quiz(menu, handler, widgets);
+        q.start();
 
         if (_VERBOSE >= 1){console.log("Edit test interface generated")};
 
@@ -18,12 +22,12 @@ async function edit_test_callback(event) {
 
         if (error instanceof MenuFileError) {
             const menuLabel = document.getElementById("menuInputLabel");
-            menuLabel.textContent += " - please provide a valid menu";
+            menuLabel.textContent = "Select Menu - please provide a valid menu";
             menuLabel.document.getElementById("InputLabel").style.color = "red";
         }
         else if (error instanceof KeyError) {
             const keyLabel = document.getElementById("keyInputLabel");
-            keyLabel.textContent += " - wrong passcode please try again";
+            keyLabel.textContent = "Enter Passcode - wrong passcode please try again";
             keyLabel.style.color = "red";
         }
         

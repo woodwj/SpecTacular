@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Converter</title>
+    <link rel="stylesheet" href="Resources/styles/dirty_martini.css">
+    
+    <script src='Resources/scripts/quiz/submissons/marker.js'></script>
+    <script src='Resources/scripts/quiz/submissons/editor.js'></script>
+
+    <script src='Resources/scripts/quiz/widgets.js'></script>
+    <script src='Resources/scripts/quiz/quiz.js'></script>
+
+    <script src='Resources/scripts/crypto/encrypt.js'></script>
+    <script src='Resources/scripts/crypto/decrypt.js'></script>
+
+    <script src='Resources/scripts/auth/edit_test.js'></script>
+    <script src='Resources/scripts/auth/new_test.js'></script>
+    <script src='Resources/scripts/auth/convert_json.js'></script>
+    <script src='Resources/scripts/auth/main_menu.js'></script>
+    
+    <script>const _VERBOSE = 2;</script>
+
+</head>
+<body>
+    <div id="main_menu">
+    <form id="menuForm">
+        <div>
+            <h2>SpecTacular - Menu Manager<img src="resources/images/MM_Icon.png" alt="SpecTacular Image"></h2>
+            <p><u>Do not share passcodes with candidates.</u></p>
+        </div>
+        <div id="mm_buttons">
+            <button id="mm_json" onclick="main_menu_callback_of(this)">Convert from JSON</button>
+            <button id="mm_edit" onclick="main_menu_callback_of(this)">Edit Menu</button>
+            <button id="mm_new" onclick="main_menu_callback_of(this)">Create Menu</button>
+        </div>
+    </form>
+    </div>
+</body>
+</html>

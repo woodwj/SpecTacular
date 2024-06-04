@@ -10,11 +10,11 @@ function new_test_callback(event){
         if (!_FILE_NAME_REGEX.test(menu_name)) {throw new MenuFileError;}
 
         document.getElementById("main_menu").remove();
-        generate_quiz({},
-            edit_mode = true,
-            menu_name,
-            passcode       
-        );
+        
+        handler = new editor(menu_name, passcode);
+        widgets = new widgetFactory(mode);
+        q = new quiz(menu, handler, widgets);
+        q.start();
 
         if (_VERBOSE >= 2){console.log("New test interface generated")};
 
@@ -22,12 +22,12 @@ function new_test_callback(event){
 
         if (error instanceof MenuFileError) {
             const menuLabel = document.getElementById("menuInputLabel");
-            menuLabel.textContent += " - use only letters, numbers, spaces, hyphens, and underscores";
+            menuLabel.textContent = "Enter Menu Name - use only letters, numbers, spaces, hyphens, and underscores";
             menuLabel.style.color = "red";
         }
         else if (error instanceof KeyError) {
             const keyLabel = document.getElementById("keyInputLabel");
-            keyLabel.textContent += "- wrong passcode please try again";
+            keyLabel.textContent = "Enter Passcode - wrong passcode please try again";
             keyLabel.style.color = "red";
         }
         
