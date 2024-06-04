@@ -44,28 +44,17 @@ relys on the <file> interface so
 You can also use **MenuManger.html** to convert menus from JSON.
 Follow the pattern for building menu objects in your own JSON file.
 
-Terminals
 ```
-Name : Str,
-Quantity : Int,
-Ingredient: Str,
-Glass : Str,
-Garnish : Str,
-Method : Str,
-History : Str,
-```
-
-Connectives
-```
-Ingredients : {Ingredient : Quantity},
 Cocktail : {
-    Name
-    Ingredients,
-    Glass,
-    Method,
-    Optional(Garnish)
-    Optional(History)
+    name : Str
+    ingredients: {Str : Int},
+    glass: Str,
+    method: Str,
+    (Optional) garnish : [Str ...]
+    (Optional) history : Str
 },
-Category : [Cocktail, ...],
-Menu : [Category, ...]
+
+CategoryList : [Cocktail,...],
+
+Menu : {Str: CategoryList, ...}
 ```
