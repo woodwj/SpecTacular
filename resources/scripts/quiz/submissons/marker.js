@@ -29,23 +29,25 @@ class marker{
                 document.getElementById(`${cocktail.name}_ingredient-${i}`).style.border = "2px solid green";
                 let quantityAnswer = ingredient_answers[ingredientG];
                 delete ingredient_answers[ingredientG];
-                if (this.mode == MODES.FLOOR){score++;}
-                else { // if (this.mode == MODES.BAR)
+                score++;
+                if (this.mode == MODES.BAR){
                     let quantityG = document.getElementById(`${cocktail.name}_quantity-${i}`).value;
-                    if (quantityG && quantityAnswer == parseInt(quantityG, 10)) {
+                    if (quantityG != '' && quantityAnswer == parseInt(quantityG, 10)) {
                         // The answer is correct for both ingredient and quantity;
                         document.getElementById(`${cocktail.name}_quantity-${i}`).style.border = "2px solid green";
                         score++; // Increment score for both correct ingredient and quantity
-                    } else {                        
+                    } else {
                         document.getElementById(`${cocktail.name}_quantity-${i}`).style.border = "2px solid red";
                     }
                 }
             }
             else {
                 document.getElementById(`${cocktail.name}_ingredient-${i}`).style.border = "2px solid red";
+                if (this.mode == MODES.BAR){document.getElementById(`${cocktail.name}_quantity-${i}`).style.border = "2px solid red"};
             }
+            
         }
-        return [score, n_ingredients];
+        return [score, this.mode == MODES.BAR? 2*n_ingredients : n_ingredients ];
     }
     
     markGlass(cocktail){

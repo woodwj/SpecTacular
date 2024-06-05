@@ -1,5 +1,6 @@
 async function take_test_callback(event, mode)  {
     event.preventDefault();
+    event.stopPropagation();
     try {
         // Attempt decrypt
         const menu = await decrypt(

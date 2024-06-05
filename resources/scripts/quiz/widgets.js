@@ -10,6 +10,8 @@ class widgetFactory{
             else if (key == "callback") {elem.addEventListener(...value);}
             else if (key == "textContent") {elem.textContent = value;}
             else if (key == "type")     {elem.type = value;}
+            else if (key == "value")    {elem.setAttribute("value",value);}
+            else if (key == "list")     {elem.setAttribute("list", value);}
         }
         return elem;
     }
@@ -18,15 +20,25 @@ class widgetFactory{
         // create div
         const container = widgetFactory.make({
             id : `${cocktail.name}_ingredients_box`,
-            HTML: `<label for = "${cocktail.name}_ingredients">${this.mode == MODES.BAR?"Ingredients & Quantities":"Ingredients"}:<label/>`
+            HTML: `<label for = "${cocktail.name}_ingredients_box">${this.mode == MODES.BAR?"Ingredients & Quantities":"Ingredients"}:</label>`
         });
         // Iterate over ingredients using forEach
         Object.entries(cocktail.ingredients).forEach(([ingredient, quantity], index) => {
+            // if were not editing discard the answers
             if (this.mode != MODES.EDIT) {ingredient = ""; quantity = "";}
-            container.innerHTML += `<input type = "text" id = "${cocktail.name}_ingredient-${index + 1}" list = "ingredientList" class = ${this.mode == MODES.FLOOR? "floor-ingredient-input":"bar-ingredient-input"} value = "${ingredient}"></input>`
-            if (this.mode != MODES.FLOOR){container.innerHTML+=`<input type = "number" id = "${cocktail.name}_quantity-${index + 1}" class = "bar-quantity-input" value = "${quantity}"></input>`}
+            // initialise ingredient text input, follow the id pattern and handle bar vs floor styling, with answer if editing
+            container.appendChild(widgetFactory.make({
+                elem: "input",
+                type: "text",
+                list: "ingredientList",
+                id: `${cocktail.name}_ingredient-${index + 1}`,
+                cls: this.mode == MODES.FLOOR ? "floor-ingredient-input" : "bar-ingredient-input",
+                value: ingredient
+            }));
+            if (this.mode != MODES.FLOOR){container.innerHTML+=`<input type = "number" id = "${cocktail.name}_quantity-${index + 1}" class = "bar-quantity-input" value = "${quantity}"></input>`;}
             container.innerHTML += "<br>";
         });
+        
         return container;
     }
     
