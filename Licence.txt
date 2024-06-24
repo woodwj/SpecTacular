@@ -18,7 +18,7 @@ b. Modify, make derivative works of, disassemble, decrypt, reverse compile, or r
 c. Share or distribute the source code of the Software in any form.
 
 3. Termination
-This Agreement is effective from the date you first use the Software (24th June 2024) and shall continue until terminated (1st Spetember). This Agreement will automatically terminate on September 1st. You may terminate it at any time upon written notice to William Wood.
+This Agreement is effective from the date you first use the Software (24th June 2024) and shall continue until terminated (1st Spetember 2024). This Agreement will automatically terminate on September 1st. You may terminate it at any time upon written notice to William Wood.
 William Wood may also terminate this Agreement at any time and without prior notice if you breach any term of this Agreement.
 
 4. Limitation of Liability
