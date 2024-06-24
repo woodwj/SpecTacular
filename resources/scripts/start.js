@@ -1,3 +1,9 @@
+/*
+ * This software is licensed under the SpecTacular (William Wood Software) Trail Software License.
+ * See the LICENSE file for details.
+ * This license will terminate on September 1st.
+ */
+
 // GLOBALS
 const _EXPIRY = new Date(1725148861000);
 const _VERBOSE = 2;

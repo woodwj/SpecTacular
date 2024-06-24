@@ -1,3 +1,8 @@
+/*
+ * This software is licensed under the SpecTacular (William Wood Software) Trail Software License.
+ * See the LICENSE file for details.
+ * This license will terminate on September 1st.
+ */
 async function encrypt_data(jsonString, passcode) {
     // Derive a key from the passphrase using PBKDF2
     const passphrase = new TextEncoder().encode(passcode);

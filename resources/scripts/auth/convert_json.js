@@ -1,3 +1,10 @@
+/*
+ * This software is licensed under the SpecTacular (William Wood Software) Trail Software License.
+ * See the LICENSE file for details.
+ * This license will terminate on September 1st.
+ */
+
+
 async function json_convert_callback(event) {
     event.preventDefault();
     try {
