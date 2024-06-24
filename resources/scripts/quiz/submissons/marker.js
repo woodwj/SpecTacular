@@ -62,6 +62,20 @@ class marker{
         }
         return [score,1];
     }
+
+    markIce(cocktail){
+        if (cocktail.hasOwnProperty("ice") == false) {return [0,0];}
+        let score = 0;
+        const ice_guess = document.getElementById(`${cocktail.name}_ice`).value;
+        if (ice_guess == cocktail.ice) {
+            score ++;
+            document.getElementById(`${cocktail.name}_ice`).style.border = "2px solid green";
+        }
+        else {
+            document.getElementById(`${cocktail.name}_ice`).style.border = "2px solid red";
+        }
+        return [score,1];
+    }
     
     markGarnish(cocktail) {
         if (cocktail.hasOwnProperty("garnish") == false) {return [0,0];}
@@ -97,8 +111,8 @@ class marker{
     };
 
     markHistory(cocktail){
-        let score = 0;
         if (cocktail.hasOwnProperty("history") == false) {return [0,0];}
+        let score = 0;
         const history_guess = document.getElementById(`${cocktail.name}_history`).value;
         if (history_guess == cocktail.history) {
             score ++;
@@ -116,7 +130,7 @@ class marker{
     markCocktail(cocktail) {
         let total_score = 0;
         let total_max_score = 0;
-        let markers = [this.markIngredients.bind(this), this.markGlass, this.markGarnish,  this.markHistory];
+        let markers = [this.markIngredients.bind(this), this.markGlass, this.markGarnish,  this.markMethod, this.markHistory, this.markIce];
         if (this.mode == MODES.BAR) {markers.push(this.markMethod);}
         for (const marker of markers) {
             const [score, max_score] = marker(cocktail);
@@ -137,7 +151,7 @@ class marker{
     handle_submission(event) {
         event.preventDefault();
         document.getElementById("submit-test-button").remove();
-        const scoreDiv = widgetFactory.make({id: "scoreArea"});
+        const scoreDiv = widgetFactory.make({id: "scoreArea", HTML: "<br>"});
     
         let totalScore = 0;
         let totalMaxScore = 0;

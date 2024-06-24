@@ -6,13 +6,14 @@
 + 1 mark per menu item. All questions about the drink must be answered correctly to gain the mark.
 + All components are multiple choice apart from quantity questions.
 + The tests are untimed.
-+ Floor tests only test for ingredients, glass, garnish and history.
++ Floor tests do not ask for ingredient quantities.
 
 # For Managers
-relys on the <file> interface so
+The application relys on a file interface so
 + you have to select a menu from a popup to take a test, edit or create
 + its recomended you use the empty **SpecTacular/Menus** folder when you download menus
 + when you create a menu, remember its password
++ when you edit a menu, its password is not changed
   
 ---
 - ## Creating a Menu
@@ -57,4 +58,23 @@ Cocktail : {
 CategoryList : [Cocktail,...],
 
 Menu : {Str: CategoryList, ...}
+```
+
+so an example could look like.
+```
+{
+    "Test Section 1":
+    [
+        {
+            "name":"Example",
+            "ingredients":
+            {
+                "Ingredent 1":50,
+                "Ingredent 2":5
+            },
+            "glass":"Required",
+            "method":"Required"
+        },...
+    ],...
+}
 ```

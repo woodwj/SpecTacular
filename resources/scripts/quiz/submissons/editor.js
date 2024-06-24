@@ -58,6 +58,12 @@ class editor{
                 // method : {cocktail_name}_method
                 cocktail.method = document.getElementById(cocktailName + '_methods').value;
 
+                // optional ice: {cocktail_name}ice
+                const iceElement = document.getElementById(cocktailName + 'ice');
+                if (iceElement) {
+                    cocktail.ice = historyElement.value;
+                }
+
                 // optional history: {cocktail_name}_history
                 const historyElement = document.getElementById(cocktailName + '_history');
                 if (historyElement) {

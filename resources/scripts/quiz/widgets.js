@@ -50,6 +50,16 @@ class widgetFactory{
             <input id = "${cocktail.name}_glass" list = glassList value = "${this.mode == MODES.EDIT? cocktail.glass : ""}"></input>`
         });
     }
+
+    ice_input(cocktail) {
+        return widgetFactory.make({
+            id : `${cocktail.name}_ice_box`,
+            HTML : `
+            <label for="${cocktail.name}_ice">Ice:</label>
+            <input id = "${cocktail.name}_ice" list = iceList value="${this.mode == MODES.EDIT? cocktail.ice: ""}"></input>
+            `
+        });
+    }
       
     garnishes_input(cocktail) {
         const container = widgetFactory.make({
@@ -77,7 +87,7 @@ class widgetFactory{
             id : `${cocktail.name}_history_box`,
             HTML : `
             <label for="${cocktail.name}_history">History:</label>
-            <input id = "${cocktail.name}_history" list = historyList value="${this.mode == MODES.EDIT? cocktail.history: ""}"></input>
+            <input type ="text" id = "${cocktail.name}_history" list = historyList value="${this.mode == MODES.EDIT? cocktail.history: ""}"></input>
             `
         });
     }
@@ -202,10 +212,16 @@ class widgetFactory{
             return;
         }
 
+        // Prompt user for an optional ice component
+        let ice = prompt("Enter an optional ice component or skip:");
+        // Varify and add the ice
+        if (ice !== "") {cocktail.ice = ice;}
+
         // Prompt user for an optional history
         let history = prompt("Enter an optional history or skip:");
         // Varify and add the history
-        if (history !== "") {cocktail.history = history;}        
+        if (history !== "") {cocktail.history = history;}
+
 
         document.getElementById(`${category_name}_add`).remove();
         if (document.getElementById(`${category_name}_remove`)){document.getElementById(`${category_name}_remove`).remove()};
@@ -221,10 +237,12 @@ class widgetFactory{
         cocktailDiv.appendChild(this.ingredients_input(cocktail));
         // cocktail glass input element
         cocktailDiv.appendChild(this.glass_input(cocktail));
+        // cocktail ice input elements
+        if (cocktail.hasOwnProperty("ice")) {cocktailDiv.appendChild(this.ice_input(cocktail));}
         // cocktail garnish input elements
         if (cocktail.hasOwnProperty("garnish")) {cocktailDiv.appendChild(this.garnishes_input(cocktail));}
         // cocktail method input element
-        if (this.mode == MODES.BAR) {cocktailDiv.appendChild(this.method_input(cocktail));}
+        cocktailDiv.appendChild(this.method_input(cocktail));
         // optional history
         if (cocktail.hasOwnProperty("history")) {cocktailDiv.appendChild(this.history_input(cocktail));}
       

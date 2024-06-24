@@ -1,5 +1,5 @@
 // GLOBALS
-const _EXPIRY = new Date(1735693261000);
+const _EXPIRY = new Date(1725148861000);
 const _VERBOSE = 2;
 
 // check if licence is valid
