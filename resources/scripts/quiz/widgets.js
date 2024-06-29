@@ -220,7 +220,6 @@ class widgetFactory{
         let ice = prompt("Enter an optional ice component or skip:");
         // Varify and add the ice
         if (ice !== "") {cocktail.ice = ice;}
-
         // Prompt user for an optional history
         let history = prompt("Enter an optional history or skip:");
         // Varify and add the history
