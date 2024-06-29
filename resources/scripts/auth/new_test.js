@@ -3,7 +3,7 @@
  * See the LICENSE file for details.
  * This license will terminate on September 1st.
  */
-function new_test_callback(event){
+function new_test_callback(event, mode){
     event.preventDefault();
     
     try {
@@ -18,7 +18,7 @@ function new_test_callback(event){
         
         handler = new editor(menu_name, passcode);
         widgets = new widgetFactory(mode);
-        q = new quiz(menu, handler, widgets);
+        q = new quiz({}, handler, widgets);
         q.start();
 
         if (_VERBOSE >= 2){console.log("New test interface generated")};

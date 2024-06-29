@@ -171,21 +171,19 @@ class widgetFactory{
             return;
         }
         
-        let add_category_button = document.getElementById("add_category_button").cloneNode(true);
-        let sumbit_button = document.getElementById("sumbit-edit-button").cloneNode(true);
         document.getElementById("add_category_button").remove();
         document.getElementById("sumbit-edit-button").remove();
 
         document.getElementById("quizForm").appendChild(this.category_wrapper(categoryName));
         document.getElementById(`${categoryName}_questions`).appendChild(this.add_cocktail_button(categoryName));
-        document.getElementById("quizForm").appendChild(add_category_button);
-        document.getElementById("quizForm").appendChild(sumbit_button);
+        document.getElementById("quizForm").appendChild(this.add_category_button());
+        document.getElementById("quizForm").appendChild(this.sumbit_button());
     }
     
     handle_new_cocktail(category_name) {
         let cocktail = {
             glass : "Enter glass",
-            method : "Enter method",
+            method : "Enter method"
         };
     
         // Prompt user for the name of the cocktail
@@ -205,13 +203,14 @@ class widgetFactory{
             return;
         }
         cocktail.ingredients = Object.fromEntries(Array(numIngredients).fill(["Enter ingredient", 0]));
-    
+
         // Prompt user for the number of garnishes
         let numGarnishes = parseInt(prompt("Enter the number of garnishes (0 to 5):"));
         // Validate the input
         if (!isNaN(numGarnishes) && (numGarnishes  >= 1 && numGarnishes <= 5)) {
             cocktail.garnish = Array(numGarnishes).fill("Enter garnish");
         }
+
         else if (!isNaN(numGarnishes) && numGarnishes != 0) {
             alert("Invalid input for the number of garnishes. Please enter a number between 0 and 5.");
             return;
