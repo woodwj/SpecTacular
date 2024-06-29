@@ -18,7 +18,10 @@ The application relys on a file interface so
 ---
 
 - ## Setup
-<video src='resources/training/setup.mp4'/>
+https://github.com/woodwj/SpecTacular/assets/47415807/e034833f-cebc-4889-8144-15eac86d7724
+
+
+
 - ## Creating a Menu
 1. Open the SpecTacular folder
 2. Open **MenuManager.html** - with a double click
