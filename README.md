@@ -16,6 +16,9 @@ The application relys on a file interface so
 + when you edit a menu, its password is not changed
   
 ---
+
+- ## Setup
+<video src='resources/training/setup.mp4'/>
 - ## Creating a Menu
 1. Open the SpecTacular folder
 2. Open **MenuManager.html** - with a double click
