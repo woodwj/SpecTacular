@@ -19,10 +19,13 @@ The application relys on a file interface so
 
 - ## Setup
 https://github.com/woodwj/SpecTacular/assets/47415807/e034833f-cebc-4889-8144-15eac86d7724
-
-
+1. Download the release
+2. Place the folder on the desktop
+3. Extract the folder on the desktop
+4. Open the extracted folder
 
 - ## Creating a Menu
+https://github.com/woodwj/SpecTacular/assets/47415807/16245fdb-0ace-4ecc-a0f6-ea10edef5142
 1. Open the SpecTacular folder
 2. Open **MenuManager.html** - with a double click
 3. Click the **Create Menu** button
@@ -32,6 +35,7 @@ https://github.com/woodwj/SpecTacular/assets/47415807/e034833f-cebc-4889-8144-15
 7. Place the menu in the **SpecTacular/Menus** directory
 
 - ## Taking a Test
+https://github.com/woodwj/SpecTacular/assets/47415807/f66bab4b-e5d7-429c-a108-2ea767a730c9
 1. Open the SpecTacular folder
 3. Open **specTacular.html** - with a double click
 4. Click the **Bar Test** or **Floor Test** button.
@@ -40,6 +44,7 @@ https://github.com/woodwj/SpecTacular/assets/47415807/e034833f-cebc-4889-8144-15
 7. Record the final score.
 
 - ## Editing a Test
+https://github.com/woodwj/SpecTacular/assets/47415807/e0acd301-009d-4d68-9446-515180d89f86
 1. Open the SpecTacular folder
 2. Open **MenuManger.html** - with a double click
 3. Click the **Edit Test** button
