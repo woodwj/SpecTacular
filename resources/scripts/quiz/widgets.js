@@ -197,12 +197,20 @@ class widgetFactory{
     
         // Prompt user for the number of ingredients        
         let numIngredients = parseInt(prompt("Enter the number of ingredients (1 to 15):"));
+        console.log(numIngredients);
+
         // Validate the input
         if (isNaN(numIngredients) || numIngredients <= 0 || numIngredients > 15) {
             alert("Invalid number of ingredients. Please enter a number between 1 and 15.");
             return;
         }
-        cocktail.ingredients = Object.fromEntries(Array(numIngredients).fill(["Enter ingredient", 0]));
+
+        console.log(Object.fromEntries(
+            Array.from({ length: numIngredients }, (_, i) => [`Enter ingredient ${i + 1}`, 0])
+        ));
+        cocktail.ingredients = Object.fromEntries(
+            Array.from({ length: numIngredients }, (_, i) => [`Enter ingredient ${i + 1}`, 0])
+        )
 
         // Prompt user for the number of garnishes
         let numGarnishes = parseInt(prompt("Enter the number of garnishes (0 to 5):"));
